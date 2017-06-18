@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="ch-zn">
+		<meta charset="UTF-8">
+		<title>我的个人主页</title>
+		<link rel="stylesheet" href="css/public.css" />
+		<link rel="stylesheet" href="css/header.css" />
+		<link rel="stylesheet" href="css/footer.css" />
+		<link rel="stylesheet" href="css/homepage.css" />
+	</head>
+
+	<body>
+		<div id="header"></div>
+
+		<!--我的时光-->
+		<div class="my_time fix">
+			<div class="my_content fix">
+				<h1 class="fix">我的时光</h1>
+				<div class="my_input_box fix">
+					<div class="input_tab">
+						<a href="#delicate_com">写微评</a>
+						<a href="#log">写日志</a>
+						<a href="#movie_com">写影评</a>
+					</div>
+				</div>
+				<div class="publish_box fix" id="pub_box">
+					<a href="#pub_box" class="ion_to_top" style="right:154px;top:300px;
+					opacity: 0;transition:opacity .6s ease-in-out"></a>
+					<!--显示用户发表的内容-->
+					<div class="text_box show" id="delicate_com">
+						<div class="txt_bg">
+							<div class="txt_pub">
+								<form>
+									<textarea name="delicate"></textarea>
+									<div class="fix txt">
+										<div class="txt_add">
+											<a href="#">电影/影人</a>
+											<a href="#">图片</a>
+											<a href="#">表情</a>
+											<a href="#">视频</a>
+											<a href="#">话题</a>
+										</div>
+										<div class="txt_sub">
+											<div class="txt_set">
+												<p style="text-align: right"><span class="txt-num">0</span>/<b>210字</b></p>
+												<div>
+													<span class="txt_check"></span>
+													<input type="checkbox" name="sync" /> <b>同步</b>
+													<a href="#" style="color:#fff">[设置]</a>
+												</div>
+												<a href="#" class="txt_submit"><b>发布</b><small>Ctrl+Enter</small></a>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+							<div class="hot_com">
+								<span>近期热评：</span>
+								<a href="#">记忆大师</a>
+								<a href="#">春娇救志明</a>
+								<a href="#">速度与激情8</a>
+							</div>
+						</div>
+						<div class="famous fix">
+							<span class="fam_left">< </span>
+							<span class="fam_right">> </span>
+							<span class="bg_title"></span>
+							<span class="close"></span>
+							<div class="fam_show show">
+								<a href="#"><img src="images/fam01.jpg" alt="" /></a>
+								<p>
+									<a href="#">作为美国最大、最古老的漫画公司之一， DC漫画的logo很长时间以来一直是娱乐大片的保证
+									</a>
+								</p>
+							</div>
+							<div class="fam_show">
+								<a href="#"><img src="images/fam02.jpg" alt="" /></a>
+								<p>
+									<a href="#">尽管最近DC拓展宇宙的影片往往不如人意， 但大部分粉丝和影迷依然相信
+									</a>
+								</p>
+							</div>
+							<div class="fam_show">
+								<a href="#"><img src="images/fam01.jpg" alt="" /></a>
+								<p>
+									<a href="#">今年的《神奇女侠》和《正义联盟》能够彻底扭转 DC电影屡战屡败的不利局面
+									</a>
+								</p>
+							</div>
+							<div class="fam_show">
+								<a href="#"><img src="images/fam02.jpg" alt="" /></a>
+								<p>
+									<a href="#">在《蝙蝠侠大战超人》、《自杀小队》接连遭遇恶评之后 （谁曾预料到《自杀小队》竟然会抢先在《正义联盟》之前搬上银幕
+									</a>
+								</p>
+							</div>
+						</div>
+
+						<!-- 显示发表内容  导航条 + 内容-->
+						<div class="fix">
+							<ul class="con_bar">
+								<li>
+									<a href="#dl01">所有分组</a>
+									<span class="top_icon02"></span>
+									<div class="classify">
+										<ul>
+											<li>
+												<a href="">同事</a>
+											</li>
+											<li>
+												<a href="">家人</a>
+											</li>
+											<li>
+												<a href="">同学</a>
+											</li>
+										</ul>
+										<ul>
+											<li>
+												<a href="">创建分组</a>
+											</li>
+											<li>
+												<a href="">调整分组</a>
+											</li>
+											<li>
+												<a href="">管理分组</a>
+											</li>
+										</ul>
+									</div>
+								</li>
+								<li>
+									<a href="#dl02">@提到我的</a>
+								</li>
+								<li>
+									<a href="#dl03">我的回复</a>
+								</li>
+							</ul>
+							<div class="right_set">
+								<span class="set"></span>
+								<a href="#">设置</a>
+							</div>
+						</div>
+						<div>
+							<dl class="all_bar show" id="dl01">
+								<dt>
+                            <input type="text" placeholder="搜索关注人的话"/>
+                        </dt>
+								<dd>
+									<a href="#" style="color:#000">全部</a>
+								</dd>
+								<dd>
+									<a href="#">原创</a>
+									<a href="#">图片</a>
+									<a href="#">视频</a>
+									&nbsp;
+									<span>|</span>
+								</dd>
+								<dd>
+									<a href="#">影评</a>
+									<a href="#">评分/想看</a>
+								</dd>
+								<dd>
+									<a href="#">关注的电影</a>
+								</dd>
+								<dd>
+									<a href="#">关注的影人</a>
+								</dd>
+							</dl>
+							<dl class="all_bar" id="dl02">
+								<dt>
+                            <input type="text" placeholder="搜索关注人的话"/><span class=""></span>
+                        </dt>
+								<dd>
+									<a href="#" style="color:#000">全部@我的</a>
+								</dd>
+								<dd>
+									<a href="#">关注的电影</a>
+								</dd>
+								<dd>
+									<a href="#">关注的影人</a>
+								</dd>
+							</dl>
+							<dl class="all_bar" id="dl03">
+								<dt>
+                            <input type="text" placeholder="搜索关注人的话"/><span class=""></span>
+                        </dt>
+								<dd>
+									<a href="#" style="color:#000">全部我的回复</a>
+								</dd>
+								<dd>
+									<a href="#">原创</a>
+									<a href="#">图片</a>
+									<a href="#">视频</a>
+									&nbsp;
+									<span>|</span>
+								</dd>
+								<dd>
+									<a href="#">关注的电影</a>
+								</dd>
+								<dd>
+									<a href="#">关注的影人</a>
+								</dd>
+							</dl>
+						</div>
+
+						<!--用户发表的内容显示区域-->
+						<div id="content_box">
+							<!--<ul class="user_publish">-->
+							<!--<li class="con_img">-->
+							<!--<a href="#">-->
+							<!--<img src="images/con_img01.jpg" alt=""/>-->
+							<!--</a>-->
+							<!--</li>-->
+							<!--<li>-->
+							<!--<span class="user_name text_blue">拽爷</span>-->
+							<!--<span class="speak">说</span><a href="#">-->
+							<!--套用商业片的套路，奈何完全不成功，告诉-->
+							<!--观众一切是巧合的巧合也不高明，两队夫妻强行恩爱，-->
+							<!--看得人要死了。</a>-->
+							<!--</li>-->
+							<!--<li>-->
+							<!--<span>电影：</span>-->
+							<!--<a href="#" class="text_blue">《呆呆计划》</a>-->
+							<!--</li>-->
+							<!--<li>评：-->
+							<!--<span class="point_star"></span>-->
+							<!--<span class="points speak">4.0</span>-->
+							<!--</li>-->
+							<!--<li class="con_bottom fix">-->
+							<!--<div>-->
+							<!--<span class="date text_blue">10小时以前</span>-->
+							<!--<span>来自 <a href="#" class="text_blue">时光微评</a></span>-->
+							<!--</div>-->
+							<!--<div class="remove">-->
+							<!--<span class="hide_txt"></span>-->
+							<!--<a href="#">隐藏</a>-->
+							<!--<span class="delete"></span>-->
+							<!--<a href="#">删除</a>-->
+							<!--<div class="delete_alert_box">-->
+							<!--<span class="ion_top"></span>-->
+							<!--<p><b>确认删除这条微评吗？</b></p>-->
+							<!--<span class="yes">确认</span>-->
+							<!--<span class="no">取消</span>-->
+							<!--</div>-->
+							<!--</div>-->
+							<!--<div>-->
+							<!--<span class="transit"></span>-->
+							<!--<a href="#" class="text_blue">转发(0)</a>-->
+							<!--<span class="reply"></span>-->
+							<!--<a href="#" class="text_blue">回复(0)</a>-->
+							<!--<span class="favour_star"></span>-->
+							<!--</div>-->
+							<!--</li>-->
+							<!--</ul>-->
+
+							<!--加载更多-->
+							<span class="publish_show_more">加载更多>></span>
+						</div>
+
+					</div>
+
+					<!--日志和右侧-->
+					<div class="text_box" id="log">
+						<div class="txt_log">
+							<input type="text" name="title" placeholder="请输入标题" />
+							<div class="set_log">
+								<select name="font_style">
+									<option value="" selected>字体</option>
+									<option value="">宋体</option>
+									<option value="">新宋体</option>
+								</select>
+								<select name="font_size">
+									<option value="" selected>14px</option>
+									<option value="">15px</option>
+									<option value="">16px</option>
+								</select>
+
+								<a href="#"><b>B</b></a>
+								<a href="#"><b>T</b></a>
+								<a href="#" style="float:right">更多></a>
+								<span class="more_select">
+                                        <b>更</b>
+                                        <b>多</b>
+                                        <b>选</b>
+                                        <b>项</b>
+                                        <b>&nbsp;》</b></span>
+							</div>
+							<textarea name="log_txt" class="input_txt"></textarea>
+							<div class="origin">
+								<input type="checkbox" name="origin" /> <span>源代码模式</span>
+								<a href="#">-</a>
+								<a href="#">+</a>
+							</div>
+						</div>
+						<div class="digest">
+							<p> <span>日志摘要</span> <span>(非必填，系统会自动截取)</span></p>
+							<div class="set_log">
+								<select name="font_style">
+									<option value="" selected>字体</option>
+									<option value="">宋体</option>
+									<option value="">新宋体</option>
+								</select>
+								<select name="font_size">
+									<option value="" selected>14px</option>
+									<option value="">15px</option>
+									<option value="">16px</option>
+								</select>
+
+								<a href="#"><b>B</b></a>
+								<a href="#"><b>T</b></a>
+								<a href="#" style="float:right">更多></a>
+							</div>
+							<textarea name="digest" class="text_digest"></textarea>
+							<div style="height:30px;line-height:30px">
+								<input type="checkbox" value="" checked/> <span>同时发送至微评</span>
+							</div>
+							<div style="line-height:30px">
+								<b>验证码：</b>
+								<input type="text" name="verify" placeholder="点击获取验证码" style="padding:10px" /> (必填)
+							</div>
+							<div style="height:60px;line-height:60px">
+								<a href="#" class="log_submit">发&nbsp;布</a>
+								<a href="#" style="color:#2A78B4">存为草稿</a>
+							</div>
+						</div>
+					</div>
+					<div class="text_box" id="movie_com">
+						<div class="movie_com_head fix">
+							<span class="icon_movie_com"></span>
+							<div class="movie_img">
+								<img src="bg_img/movie_com01.jpg" alt="" />
+							</div>
+							<div class="movie_head_right">
+								<h4>写影评请先关联电影或者影人...</h4>
+								<input type="text" placeholder="请输入关联影片影人" />
+								<div class="hot_com">
+									<span>近期热评：</span>
+									<a href="#">记忆大师</a>
+									<a href="#">春娇救志明</a>
+									<a href="#">速度与激情8</a>
+								</div>
+							</div>
+						</div>
+						<div class="movie_box">
+							<div class="txt_log">
+								<input type="text" name="title" placeholder="请输入标题" />
+								<div class="set_log">
+									<select name="font_style">
+										<option value="" selected>字体</option>
+										<option value="">宋体</option>
+										<option value="">新宋体</option>
+									</select>
+									<select name="font_size">
+										<option value="" selected>14px</option>
+										<option value="">15px</option>
+										<option value="">16px</option>
+									</select>
+
+									<a href="#"><b>B</b></a>
+									<a href="#"><b>T</b></a>
+									<a href="#" style="float:right">更多></a>
+									<span class="more_select">
+                                        <b>更</b>
+                                        <b>多</b>
+                                        <b>选</b>
+                                        <b>项</b>
+                                        <b>&nbsp;》</b></span>
+								</div>
+								<textarea name="log_txt" class="input_txt"></textarea>
+								<div class="origin">
+									<input type="checkbox" name="origin" /> <span>源代码模式</span>
+									<a href="#">-</a>
+									<a href="#">+</a>
+								</div>
+							</div>
+							<div class="digest">
+								<p> <span>日志摘要</span> <span>(非必填，系统会自动截取)</span></p>
+								<div class="set_log">
+									<select name="font_style">
+										<option value="" selected>字体</option>
+										<option value="">宋体</option>
+										<option value="">新宋体</option>
+									</select>
+									<select name="font_size">
+										<option value="" selected>14px</option>
+										<option value="">15px</option>
+										<option value="">16px</option>
+									</select>
+
+									<a href="#"><b>B</b></a>
+									<a href="#"><b>T</b></a>
+									<a href="#" style="float:right">更多></a>
+								</div>
+								<textarea name="digest" class="text_digest"></textarea>
+								<div style="height:30px;line-height:30px">
+									<input type="checkbox" value="" checked/> <span>同时发送至微评</span>
+								</div>
+								<div style="line-height:30px">
+									<b>验证码：</b>
+									<input type="text" name="verify" placeholder="点击获取验证码" style="padding:10px" /> (必填)
+								</div>
+								<div style="height:60px;line-height:60px">
+									<a href="#" class="log_submit">发&nbsp;布</a>
+									<a href="#" style="color:#2A78B4">存为草稿</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="time_right">
+				<ol class="user_detail fix">
+					<li class="fix">
+						<p>
+							<a href="#">
+								<img src="images/user.jpg" />
+							</a>
+						</p>
+						<div>
+							<h3 class="login_user_name">杰米</h3>
+							<a href="#">进入我的博客>></a>
+						</div>
+					</li>
+					<li class="fix">
+						<div>
+							<span>10</span>
+							<p>
+								<a href="#">关注</a>
+							</p>
+						</div>
+						<div>
+							<span>10</span>
+							<p>
+								<a href="#">粉丝</a>
+							</p>
+						</div>
+						<div>
+							<span class="con_total">2</span>
+							<p>
+								<a href="#">微评</a>
+							</p>
+						</div>
+					</li>
+				</ol>
+				<div class="user_aside">
+					<h3>近期热门</h3>
+					<p class="user_hot_movie">
+						<a href="#"><img src="images/user_img01.jpg" alt="" /></a>
+						<a href="#"><img src="images/user_img02.jpg" alt="" /></a>
+						<a href="#"><img src="images/user_img03.jpg" alt="" /></a>
+					</p>
+					<ul class="user_movie_list">
+						<li>
+							<a href="#">金刚：骷髅岛(0)</a>
+						</li>
+						<li>
+							<a href="#">美女与野兽(0)</a>
+						</li>
+						<li>
+							<a href="#">换了好生硬(0)</a>
+						</li>
+						<li>
+							<a href="#">极限特工：终极回归(0)</a>
+						</li>
+						<li>
+							<a href="#">爱乐之城</a>
+						</li>
+						<li>
+							<a href="#">西游伏魔篇(0)</a>
+						</li>
+						<li>
+							<a href="#">大闹天竺</a>
+						</li>
+						<li>
+							<a href="#">乘风破浪(0)</a>
+						</li>
+						<li>
+							<a href="#">更多热门>></a>
+						</li>
+					</ul>
+					<div class="maybe_interest">
+						<p class="fix">
+							<b>你可能感兴趣的人</b>
+							<span>换一换</span>
+						</p>
+						<ul class="member_list">
+							<li class="fix">
+								<div class="member_name">
+									<img src="images/mem01.jpg" alt="" />
+									<span>饾饤</span> <br/>
+									<span>附近上网</span>
+								</div>
+								<span class="attention">+加关注</span>
+							</li>
+							<li class="fix">
+								<div class="member_name">
+									<img src="images/mem02.jpg" alt="" />
+									<span>LO哥</span> <br/>
+									<span>大学校友</span>
+								</div>
+								<span class="attention">+加关注</span>
+							</li>
+							<li class="fix">
+								<div class="member_name">
+									<img src="images/mem03.jpg" alt="" />
+									<span>蓝色的天空</span> <br/>
+									<span>大学校友</span>
+								</div>
+								<span class="attention">+加关注</span>
+							</li>
+						</ul>
+						<div class="add_topic">
+							<h3>我关注的话题</h3>
+							<p>添加自己的话题，查看相关的微评更方便</p>
+							<span class="attention">添加</span>
+						</div>
+						<div class="hot_member">
+							<h3>人气会员</h3>
+							<ul class="active_member">
+								<li>
+									<p>
+										<a href="#"><img src="images/mem08 .jpg" alt="" /></a>
+									</p>
+									<span class="member_name">晴朗云云</span>
+								</li>
+								<li>
+									<p>
+										<a href="#"><img src="images/mem04.jpg" alt="" /></a>
+									</p>
+									<span class="member_name">鲸鱼君</span>
+								</li>
+								<li>
+									<p>
+										<a href="#"><img src="images/mem05.jpg" alt="" /></a>
+									</p>
+									<span class="member_name">&nbsp;&nbsp;欧叔</span>
+								</li>
+								<li>
+									<p>
+										<a href="#"><img src="images/mem06.jpg" alt="" /></a>
+									</p>
+									<span class="member_name">叛卡门</span>
+								</li>
+								<li>
+									<p>
+										<a href="#"><img src="images/mem07.jpg" alt="" /></a>
+									</p>
+									<span class="member_name">白羊先生</span>
+								</li>
+								<li>
+									<p>
+										<a href="#"><img src="images/mem09.jpg" alt="" /></a>
+									</p>
+									<span class="member_name">周十一童鞋</span>
+								</li>
+							</ul>
+						</div>
+						<div class="hot_member">
+							<h3>你可能感兴趣的群组</h3>
+							<ul class="active_member" style="height:240px;">
+								<li>
+									<p>
+										<a href="#"><img src="images/mem10.jpg" alt="" /></a>
+									</p>
+									<span class="member_name">让你哭泣</span>
+								</li>
+								<li>
+									<p>
+										<a href="#"><img src="images/mem10.jpg" alt="" /></a>
+									</p>
+									<span class="member_name">皮克斯动画洗礼心灵的光影之旅</span>
+								</li>
+								<li>
+									<p>
+										<a href="#"><img src="images/mem11.jpg" alt="" /></a>
+									</p>
+									<span class="member_name">浙江传媒学院时光影迷会</span>
+								</li>
+								<li>
+									<p>
+										<a href="#"><img src="images/mem12.jpg" alt="" /></a>
+									</p>
+									<span class="member_name">蝙蝠侠</span>
+								</li>
+								<li>
+									<p>
+										<a href="#"><img src="images/mem13.jpg" alt="" /></a>
+									</p>
+									<span class="member_name">爱电影，爱生活</span>
+								</li>
+								<li>
+									<p>
+										<a href="#"><img src="images/mem14.jpg" alt="" /></a>
+									</p>
+									<span class="member_name">带着相机拍电影</span>
+								</li>
+							</ul>
+						</div>
+						<div class="user_bottom">
+							<h3>申请MVP认证 >></h3>
+							<p>
+								时光网会对影视、娱乐、传媒等行业从业知名人士、 社会团体以及相关企业和机构予以实名认证。
+							</p>
+							<a href="#"><span class="icon_dot"></span>马上申请>></a>
+						</div>
+						<div class="user_bottom">
+							<h3>去邀请好友 >></h3>
+							<h3>想找更多好友，你可以</h3>
+							<a href="#"> <span class="icon_dot"></span>查找邮箱联系人</a>
+							<a href="#"> <span class="icon_dot"></span>查找公司同事</a>
+						</div>
+						<div class="user_bottom">
+							<h3>意见反馈 >></h3>
+							<p>欢迎您提出宝贵建议，请
+								<a href="#">点击这里</a>
+								提出您的意见反馈
+							</p>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="footer"></div>
+		<script src="js/jquery-1.11.3.js"></script>
+		<script src="js/homepage.js" type="text/javascript" charset="utf-8"></script>		
+	</body>
+
+</html>	

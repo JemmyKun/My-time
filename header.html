@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/public.css"/>
+    <link rel="stylesheet" href="css/header.css"/>
+</head>
+<body>
+<!--header 固定 导航条-->
+<header>
+    <!--part 01 nav和右侧的两个按钮-->
+    <div class="top">
+        <p>
+            <a href="index.html">首页 <i class="top_icon"></i></a>
+            <a href="#">购票</a>
+            <a href="mall.html">正版商城</a>
+            <a href="#">新闻</a>
+            <a href="#">直播</a>
+            <a href="#">发现</a>
+            <a href="homepage.html">社区</a>
+        </p>
+        <div class="logo_img">
+            <a href="#"><img src="imgs/logo_01.png" alt="logo"/></a>
+        </div>
+        <div class="top_right">
+            <div class="user_login fix">
+                <div class="user_email">
+                    <span class="email"></span>
+                </div>
+                <div class="user_index">
+                    <img src="images/user.jpg" class="user_img"/>
+                    <div class="my_info">
+                        <ul class="user_info">
+                            <li class="fix">
+                                <a href="" class="jump_homepage"><img src="images/user.jpg"/></a>
+                                <div>
+                                    <p><a href="" id="user_name"></a></p>
+                                    <p><a href="#">我的特权 | 会员礼包</a></p>
+                                </div>
+                            </li>
+                            <li class="fix">
+                                <a href="#">电影票订单</a>
+                                <a href="#">商品订单</a>
+                                <a href="#">我的优惠券</a>
+                                <a href="#">我的礼品卡（1）</a>
+                            </li>
+                            <li class="fix">
+                                <p>
+                                    <a href="#">我的：博客 | 群组 | 电影 | 收藏</a>
+                                </p>
+                                <p>
+                                    <a href="#">游戏：卡片大富翁 | 猜电影</a>
+                                </p>
+                            </li>
+                            <li>
+                                <span>修改资料</span> | <a href="#">密码</a>
+                                <a href="#" class="exit">退出</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <i class="top_icon" style="left:30px;display:none"></i>
+                </div>
+            </div>
+            <a href="#" id="show_app">
+                <i class="top_icon01"></i>
+                App下载
+                <i class="top_icon02"></i>
+                <i class="top_icon04 top_icon"></i>
+                <div id="top_app">
+                    <span class="app"></span>
+                    <div><h2>扫码客户端</h2></div>
+                    <div>手机购票，方便实惠</div>
+                </div>
+            </a>
+            <a id="header_login">
+                <b class="btn_login ">登录</b>
+                <i class="top_icon03"></i>
+                <i class="top_icon top_icon05"></i>
+                <div id="login">
+                    <h2>为爱电影的人</h2>
+                    <div><span>For people who love movies</span></div>
+                    <form>
+                        <span class="login_icon01"></span>
+                        <input type="text" placeholder="输入电子邮箱/手机号" name="login_phone_02"/>
+                        <span class="login_icon02"></span>
+                        <input type="password" name="login_pwd_02"/><br/>
+                        <label class="login_rem">
+                            <i class="remember"></i>
+                            <span class="left">记住我</span>
+                            <span>忘记密码</span>
+                        </label>
+                        <span class="button btn01 submit_btn_header">登录</span>
+                        <span class="button btn02 submit_reg">注册</span>
+                    </form>
+                    <div class="login_bottom">
+                        <h2>使用第三方登录</h2>
+                        <span class="login01"></span>
+                        <span class="login02"></span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="login.html" class="submit_reg">
+                注册
+            </a>
+            <a href="#">
+                <i class="shop_cart"></i>
+                <div id="shopping">
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="right_fix">
+        <!--<a href="#" class="search_box"></a>-->
+        <a href="#" class="to_top"></a>
+    </div>
+
+</header>
+
+
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+    //1.1header点击登录‘弹窗’
+    $('#header_login>b.btn_login').click(function(e){
+        e.preventDefault();
+        $(this).siblings('#login').toggleClass('show');
+        $(this).siblings('.top_icon05').toggleClass('show');
+    });
+    //1.2点击‘表单记住我’
+    $('.remember').click(function(){
+        $(this).toggleClass('remember_hover');
+    });
+    //.user_info
+
+    $('.user_index').hover(function(){
+        $(this).find('.my_info').css('display','block');
+        $(this).find('.top_icon').css('display','inline-block');
+    },function(){
+                $(this).find('.my_info').css('display','none');
+                $(this).find('.top_icon').css('display','none');
+            }
+    );
+
+    //用户是否登录 登录显示登录的状态
+        if(sessionStorage['loginUname']){
+            $('.user_login').css('display','block');
+            $('#user_name').html('欢迎回来：'+sessionStorage['loginUname']);
+
+    //点击‘退出’ 个人信息隐藏
+    $('.exit').click(function(e){
+        e.preventDefault();
+        alert('确定要退出吗？');
+        sessionStorage.clear();
+        $(this).parent('li').parent('ul').parent('.my_info')
+                .parent('.user_index').parent('.user_login').css('display','none');
+         //location.href = 'index.html';
+    })
+ }
+    //点击登录
+    $('.submit_btn_header').click(function(e){
+        var p = $('[name=login_phone_02]').val();
+        var pwd = $('[name=login_pwd_02]').val();
+        $.ajax({
+            type:'POST',
+            url:'/user/login',
+            data:{phone:p,pwd:pwd},
+            success:function(result){
+                //console.log(result);
+                if(result.code===1){
+                    alert('登录成功！确认后跳转到主页');
+                    //在客户端存储回话基本数据:loginUname,loginUid
+                    sessionStorage['loginUname'] = result.uname;
+                    sessionStorage['loginUid'] = result.uid;
+                    setTimeout(function(){
+                        location.href = 'index.html';
+                    },1000);
+
+                }else{
+                    alert('登录失败！请检查用户名和密码');
+                    console.log(result.msg+'或者正在切换登录用户');
+                }
+            }
+        });
+    });
+
+    //点击注册
+    $('.submit_reg').click(function(e){
+        e.preventDefault();
+//        location.href = 'login.html';
+        setTimeout(function(){
+            location.href = 'login.html';
+        },500)
+    });
+
+    //点击个人头像 跳转到个人主页
+    $('.jump_homepage').click(function(e){
+        e.preventDefault();
+        setTimeout(function(){
+            location.href  = 'homepage.html';
+        },750)
+    });
+</script>
+</body>
+</html>

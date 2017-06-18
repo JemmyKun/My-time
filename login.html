@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head lang="ch-zn">
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+    <link rel="stylesheet" href="css/login.css"/>
+</head>
+<body>
+<div id="header"></div>
+
+<div id="user_login">
+    <div class="forms">
+        <b class="mid_line"></b>
+        <div>
+            <h1>新会员注册</h1>
+            <form  id="register" style="position:relative">
+                <input type="text" placeholder="输入用户名" name="uname" required
+                      />
+                <input type="text" placeholder="常用手机号" name="phone" required
+                        pattern="1[35789]\d{9}"/>
+                <input type="email" placeholder="常用电子邮箱" name="email"
+                       />
+                <input type="password" name="pwd" placeholder="密码(6-20位字母与数字、符号组合)"/>
+                <div class="check_img fix">
+                    <input type="text" name="check" placeholder="点击获取验证密码" id="verify"/>
+                    <div class="can_img fix">
+                        <div>
+                            <canvas id="c1"></canvas>
+                        </div>
+                        <a href="#" class="refresh">刷新</a>
+                    </div>
+
+                </div>
+                <div class="msg_check">
+                    <input type="text" placeholder="短信验证码"/>
+                    <a href="#" class="get_code">获取验证码</a>
+                </div>
+                <div>
+                	      性别：<input type="radio" name="sex" value="1"/> 男
+                		<input type="radio" name="sex" value="0"/> 女
+                </div>
+          
+                 <p><span class="get_check"></span>已同意《Mtime时光网服务条款》</p>
+                <a href="#" class="login_btn register_btn">注册</a>
+            </form>
+        </div>
+        <div>
+            <h1>会员登录</h1>
+            <form id="to_login">
+                <input type="text" placeholder="使用手机/邮箱登录" name="login_phone_01" required
+                       pattern="1[35789]\d{9}"/>
+                <input type="password" name="login_pwd_01" placeholder="密码(6-20位字母与数字、符号组合)"/>
+                <p><span class="get_check check_login"></span><span class="rem">记住我</span> <span class="fog">忘记密码</span></p>
+                <a href="#" class="login_btn submit_btn_login">登录</a>
+
+                <h5>使用第三方登录</h5>
+                <span class="login01"></span>
+                <span class="login02"></span>
+            </form>
+        </div>
+    </div>
+    <div class="alert">
+        <p>登录成功,3s后自动跳转到主页</p>
+    </div>
+</div>
+
+
+<div id="footer"></div>
+
+<script src="js/jquery-1.11.3.js">
+</script>
+<script>
+    $('#header').load('header.html');
+    $('#footer').load('footer.html');
+    //点击 同意注册
+    $('.get_check').click(function(){
+        $(this).toggleClass('check_hover')
+    });
+
+
+
+    //用户注册:监听‘注册按钮’单击事件
+    $('.register_btn').click(function(e){
+        e.preventDefault();
+        //alert('开始注册？');
+        var n = $('[name=uname]').val();
+//        console.dir(ph);
+        var ph = $('[name="phone"]').val();
+        var email = $('[name=email]').val();
+        //console.log(email);
+        var pw = $('[name=pwd]').val();
+        var s = $('[name=sex]:checked').val();
+
+        if(n&&ph&&email&&pw&&s){//用户不输入就不能提交
+        //客户端数据异步提交给服务器
+        $.ajax({
+            type:'POST',
+            url:'/user/register',
+            data:{uname:n,upwd:pw,phone:ph,email:email,sex:s},
+            success:function(result){
+                console.log(result);
+                if(result.code===1){
+                    alert('注册成功,立即登录？');
+                    //sessionStorage['userName'] = n;
+                    setInterval(function(){
+                        location.href = 'login.html'
+                    },1000);
+                }else{
+                    alert('注册失败！请稍后重试！');
+                }
+            }
+        });
+        }else{
+            alert('请填完注册信息');
+        }
+
+    });
+
+    //用户登录:监听‘登录按钮’单击事件
+    $('.submit_btn_login').click(function(e){
+        e.preventDefault();
+        var p = $('[name=login_phone_01]').val();    //注意！！表单控件非选择，里面name
+        var pwd = $('[name=login_pwd_01]').val();    // 不能相同,否则只能读取前面input里面的value
+                                                     //后面的input 里面的value 为空！！！
+       // console.log(p);
+        $.ajax({
+            type:'POST',
+            url:'/user/login',
+            data:{phone:p,pwd:pwd},
+            success:function(result){
+                console.log(result);
+                if(result.code===1){
+                    alert('登录成功！确认后跳转到主页');
+                    //在客户端存储回话基本数据:loginUname,loginUid
+                    sessionStorage['loginUname'] = result.uname;
+                    sessionStorage['loginUid'] = result.uid;
+                    setInterval(function(){
+                        location.href = 'index.html';
+                    },1000);
+                }else{
+                    alert('登录失败！请检查用户名或密码');
+                    console.log(result.msg+'或者正在切换登录用户');
+                }
+            }
+        });
+    });
+</script>
+
+<script>
+    //利用canvas模拟验证码的生成
+    createCode();
+    $('.refresh').click(function(e){
+        e.preventDefault();
+        createCode();
+    });
+    function createCode(){
+    var w=120,h = 40;
+    var ctx = c1.getContext('2d');
+    c1.width = w;
+    c1.height = h;
+    //定义指定范围内的整数
+    function rn(min,max){
+        var n = Math.floor(Math.random()*(max-min)+min);
+        return n;
+    }
+    //定义指定范围内的随机颜色
+    function rc(min,max){
+        var r = rn(min,max);
+        var g = rn(min,max);
+        var b = rn(min,max);
+        return `rgb(${r},${g},${b}`;
+    }
+    //填充背景颜色
+    ctx.fillStyle = rc(180,200);
+    ctx.fillRect(0,0,w,h);
+
+    //绘制随机的字符
+    var pool = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ3456789';
+    for(var i=0;i<4;i++){
+        var c = pool[rn(0,pool.length)];
+        var fs = rn(18,40);//字体大小
+        var deg = rn(-45,45);//旋转角度
+        ctx.font = fs+'px SimHei';
+        ctx.fillStyle = rc(80,180);
+        ctx.textBaseline = 'center';
+        ctx.save();//保存当前的画笔状态
+        ctx.translate(15*i+15,15);
+        ctx.rotate(deg*Math.PI/180);
+        ctx.fillText(c,10,15);
+        ctx.restore();//回复画笔到原始状态
+    }
+    //绘制3条干扰线
+    for(var j=0;j<3;j++){
+        ctx.strokeStyle = rc(0,255);
+        ctx.beginPath();
+        ctx.moveTo(rn(0,w),rn(0,h));
+        ctx.lineTo(rn(0,w),rn(0,h));
+        ctx.stroke();
+    }
+    //绘制20个干扰点
+    for(var k=0;k<20;k++){
+        ctx.fillStyle = rc(0,255);
+        ctx.beginPath();
+        ctx.arc(rn(0,w),rn(0,h),0.5,0,2*Math.PI);
+        ctx.fill();
+    }
+ }
+
+</script>
+
+
+
+
+</body>
+</html>
